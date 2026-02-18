@@ -1,5 +1,11 @@
+import Button from "../componentes/Button"
+
 // Vista de detalle de una película
-function Detalle() {
+function Detalle({ pelicula, cambiarVista }) {
+  if (!pelicula) {
+    return <p style={{ textAlign: "center", padding: "24px" }}>No se seleccionó ninguna película.</p>
+  }
+
   return (
     <main
       style={{
@@ -8,11 +14,15 @@ function Detalle() {
         margin: "0 auto"
       }}
     >
-      <h2>¿Cómo llegué aquí?</h2>
+      <Button text="← Volver a cartelera" onClick={() => cambiarVista("cartelera")} />
+      <Button text="← Volver al inicio" onClick={() => cambiarVista("home")} />
+      <Button text="← Volver a comida" onClick={() => cambiarVista("comida")} />
+
+      <h2 style={{ marginTop: "16px" }}>{pelicula.title}</h2>
 
       <img
-        src="link de la imagen"
-        alt="Nombre de la película"
+        src={pelicula.image}
+        alt={pelicula.title}
         style={{
           width: "100%",
           borderRadius: "8px",
@@ -20,9 +30,7 @@ function Detalle() {
         }}
       />
 
-      <p>
-        AQUÍ VA UNA SINOPSIS DE LA PELÍCULA
-      </p>
+      <p>{pelicula.sinopsis}</p>
     </main>
   );
 }

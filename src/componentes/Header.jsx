@@ -46,6 +46,13 @@ function Header({ cambiarVista }) {
           >
             Comida
           </span>
+
+          <span
+            style={{ cursor: "pointer" }}
+            onClick={() => cambiarVista("otro")}
+          >
+            Otros
+          </span>
         </nav>
       </div>
     </header>

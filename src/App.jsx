@@ -9,10 +9,13 @@ import Home from "./pages/Home"
 import Cartelera from "./pages/Cartelera"
 import Detalle from "./pages/Detalle"
 import Food from "./pages/Food"
+import Otros from "./pages/Otros"
 
 function App() {
   // Estado que controla qué vista se muestra
   const [vistaActual, setVistaActual] = useState("home")
+  // Estado que guarda la película seleccionada
+  const [peliculaSeleccionada, setPeliculaSeleccionada] = useState(null)
 
   return (
     // Contenedor raíz de la aplicación
@@ -21,10 +24,11 @@ function App() {
       <Header cambiarVista={setVistaActual} />
 
       {/* Renderizado condicional de vistas */}
-      {vistaActual === "home" && <Home cambiarVista={setVistaActual} />}
-      {vistaActual === "cartelera" && <Cartelera cambiarVista={setVistaActual} />}
-      {vistaActual === "comida" && <Food cambiarVista={setVistaActual} />}
-      {vistaActual === "detalle" && <Detalle />}
+      {vistaActual === "home" && <Home cambiarVista={setVistaActual} seleccionarPelicula={setPeliculaSeleccionada} />}
+      {vistaActual === "cartelera" && <Cartelera cambiarVista={setVistaActual} seleccionarPelicula={setPeliculaSeleccionada} />}
+      {vistaActual === "comida" && <Food cambiarVista={setVistaActual} seleccionarPelicula={setPeliculaSeleccionada} />}
+      {vistaActual === "detalle" && <Detalle pelicula={peliculaSeleccionada} cambiarVista={setVistaActual} />}
+      {vistaActual === "otro" && <Otros cambiarVista={setVistaActual} />}
     </div>
   )
 }
