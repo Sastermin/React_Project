@@ -1,5 +1,6 @@
 import { useState } from "react"
 import Header from "./componentes/Header"
+import Footer from "./componentes/Footer"
 
 // Importar las vistas que mostraremos según la navegación
 import Home from "./pages/Home"
@@ -7,6 +8,7 @@ import Cartelera from "./pages/Cartelera"
 import Detalle from "./pages/Detalle"
 import Food from "./pages/Food"
 import Otros from "./pages/Otros"
+import Legales from "./pages/Legales"
 
 function App() {
   // Se declara un estado que controla qué vista se muestra
@@ -46,6 +48,12 @@ function App() {
       {vistaActual === "otro" && (
         <Otros cambiarVista={setVistaActual} />
       )}
+
+      {vistaActual === "legales" && (
+        <Legales />
+      )}
+
+      <Footer cambiarVista={setVistaActual} />
     </div>
   )
 }
