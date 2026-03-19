@@ -1,21 +1,23 @@
+import { useParams, Link } from "react-router-dom"
 import { useState } from "react"
+import peliculasHome from "../detalles.json"
+import peliculasCartelera from "../detalles_cartelera.json"
+
+// película en ambos JSONs por ID
+const todasLasPeliculas = [...peliculasHome, ...peliculasCartelera]
 
 // Vista de detalle de una película
-function Detalle({ pelicula }) {
+function Detalle() {
+  const { id } = useParams()
+
+  // Buscamos la película que coincida con el ID de la URL
+  const pelicula = todasLasPeliculas.find((p) => String(p.id) === id)
 
   // Estados para el formulario
   const [nombre, setNombre] = useState("")
   const [cantidadBoletos, setCantidadBoletos] = useState(1)
   const [mensaje, setMensaje] = useState("")
 
-  // En el caso que no se seleccione ninguna película
-  if (!pelicula) {
-    return (
-      <main style={{ padding: "24px", textAlign: "center" }}>
-        <h2>No hay película seleccionada</h2>
-      </main>
-    )
-  }
 
   // Evento submit/enviar
   function manejarCompra(e) {
@@ -38,6 +40,10 @@ function Detalle({ pelicula }) {
         margin: "0 auto"
       }}
     >
+      <Link to="/" style={{ display: "inline-block", marginBottom: "16px", color: "#0b5ed7" }}>
+        ← Volver
+      </Link>
+
       <h2>{pelicula.titulo}</h2>
 
       <img

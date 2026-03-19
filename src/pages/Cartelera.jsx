@@ -1,7 +1,7 @@
 import MovieCard from "../componentes/MovieCard"
 import peliculas from "../detalles_cartelera.json";
 
-function Cartelera({ verDetalle }) {
+function Cartelera() {
   return (
     <main
       style={{
@@ -18,7 +18,7 @@ function Cartelera({ verDetalle }) {
           key={pelicula.id}
           title={pelicula.titulo}
           image={pelicula.imagen}
-          onVerDetalle={() => verDetalle(pelicula)}
+          movieId={pelicula.id}
         />
       ))}
     </main>

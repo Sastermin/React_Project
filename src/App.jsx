@@ -1,8 +1,7 @@
-import { useState } from "react"
+import { Routes, Route } from "react-router-dom"
 import Header from "./componentes/Header"
 import Footer from "./componentes/Footer"
 
-// Importar las vistas que mostraremos según la navegación
 import Home from "./pages/Home"
 import Cartelera from "./pages/Cartelera"
 import Detalle from "./pages/Detalle"
@@ -11,49 +10,20 @@ import Otros from "./pages/Otros"
 import Legales from "./pages/Legales"
 
 function App() {
-  // Se declara un estado que controla qué vista se muestra
-  const [vistaActual, setVistaActual] = useState("home")
-
-  // Aquí nos permite guardar alguna película seleccionada
-  const [peliculaSeleccionada, setPeliculaSeleccionada] = useState(null)
-
-  // Función para ir a detalle enviando datos
-  function verDetalle(pelicula) {
-    setPeliculaSeleccionada(pelicula)
-    setVistaActual("detalle")
-  }
-
   return (
     <div style={{ minHeight: "100vh" }}>
-      {/* Header controla navegación principal */}
-      <Header cambiarVista={setVistaActual} />
+      <Header />
 
-      {/* Renderizado condicional, el triple "=" es para asegurar que solo se cumpla la condición si es exactamente igual */}
-      {vistaActual === "home" && (
-        <Home verDetalle={verDetalle} />
-      )}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/cartelera" element={<Cartelera />} />
+        <Route path="/detalle/:id" element={<Detalle />} />
+        <Route path="/comida" element={<Food />} />
+        <Route path="/otros" element={<Otros />} />
+        <Route path="/legales" element={<Legales />} />
+      </Routes>
 
-      {vistaActual === "cartelera" && (
-        <Cartelera verDetalle={verDetalle} />
-      )}
-
-      {vistaActual === "detalle" && (
-        <Detalle pelicula={peliculaSeleccionada} />
-      )}
-
-      {vistaActual === "comida" && (
-        <Food verDetalle={verDetalle} />
-      )}
-
-      {vistaActual === "otro" && (
-        <Otros cambiarVista={setVistaActual} />
-      )}
-
-      {vistaActual === "legales" && (
-        <Legales />
-      )}
-
-      <Footer cambiarVista={setVistaActual} />
+      <Footer />
     </div>
   )
 }

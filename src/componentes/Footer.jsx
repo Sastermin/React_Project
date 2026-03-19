@@ -1,4 +1,11 @@
-function Footer({ cambiarVista }) {
+import { Link } from "react-router-dom"
+
+const linkStyle = {
+  color: "inherit",
+  textDecoration: "none",
+}
+
+function Footer() {
   return (
     <footer style={{
       backgroundColor: "#0d1b2a",
@@ -12,7 +19,9 @@ function Footer({ cambiarVista }) {
 
         {/* Cartelera */}
         <div>
-          <h4 style={{ color: "#fff", margin: "0 0 12px" }}>Cartelera</h4>
+          <h4 style={{ color: "#fff", margin: "0 0 12px" }}>
+            <Link to="/cartelera" style={linkStyle}>Cartelera</Link>
+          </h4>
           <p style={{ margin: "6px 0" }}>Próximos estrenos</p>
           <p style={{ margin: "6px 0" }}>En cartelera</p>
           <p style={{ margin: "6px 0" }}>Preventas</p>
@@ -20,11 +29,8 @@ function Footer({ cambiarVista }) {
 
         {/* Legales */}
         <div>
-          <h4
-            style={{ color: "#fff", margin: "0 0 12px", cursor: "pointer" }}
-            onClick={() => cambiarVista("legales")}
-          >
-            Legales
+          <h4 style={{ color: "#fff", margin: "0 0 12px", cursor: "pointer" }}>
+            <Link to="/legales" style={linkStyle}>Legales</Link>
           </h4>
           <p style={{ margin: "6px 0" }}>Términos y condiciones</p>
           <p style={{ margin: "6px 0" }}>Aviso de privacidad</p>

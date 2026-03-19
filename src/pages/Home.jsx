@@ -2,7 +2,7 @@ import MovieCard from "../componentes/MovieCard";
 import MovieCarousel from "../componentes/MovieCarousel";
 import peliculas from "../detalles.json";
 
-function Home({ verDetalle }) {
+function Home() {
   return (
     <>
       <section
@@ -13,7 +13,7 @@ function Home({ verDetalle }) {
         }}
       >
         <h2>ESTRENOS</h2>
-        <MovieCarousel movies={peliculas} verDetalle={verDetalle} />
+        <MovieCarousel movies={peliculas} />
       </section>
 
       <main
@@ -31,8 +31,7 @@ function Home({ verDetalle }) {
             key={pelicula.id}
             title={pelicula.titulo}
             image={pelicula.imagen}
-            description={pelicula.descripcion}
-            onVerDetalle={() => verDetalle(pelicula)}
+            movieId={pelicula.id}
           />
         ))}
       </main>

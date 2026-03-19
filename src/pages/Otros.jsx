@@ -1,7 +1,7 @@
 // Importamos la tarjeta reutilizable
 import MovieCard from "../componentes/MovieCard"
 
-function Otros({ cambiarVista }) {
+function Otros() {
   return (
     <main
       style={{
@@ -16,19 +16,16 @@ function Otros({ cambiarVista }) {
       <MovieCard
         title="Promociones"
         image=""
-        onVerDetalle={() => cambiarVista("")}
       />
 
       <MovieCard
         title="Membresías"
         image=""
-        onVerDetalle={() => cambiarVista("")}
       />
 
       <MovieCard
         title="Preventas"
         image=""
-        onVerDetalle={() => cambiarVista("")}
       />
     </main>
   )

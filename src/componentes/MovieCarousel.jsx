@@ -6,7 +6,7 @@ import "swiper/css/navigation"
 
 import MovieCard from "./MovieCard"
 
-function MovieCarousel({ movies, verDetalle }) {
+function MovieCarousel({ movies }) {
   return (
     <Swiper
       modules={[Navigation]}
@@ -19,7 +19,7 @@ function MovieCarousel({ movies, verDetalle }) {
           <MovieCard
             title={movie.titulo}
             image={movie.imagen}
-            onVerDetalle={() => verDetalle && verDetalle(movie)}
+            movieId={movie.id}
           />
         </SwiperSlide>
       ))}

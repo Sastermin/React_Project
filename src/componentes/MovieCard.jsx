@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom"
 import Button from "./Button"
 
-function MovieCard({ title, image, onVerDetalle }) {
+function MovieCard({ title, image, movieId }) {
   return (
     <div
       style={{
@@ -23,7 +24,11 @@ function MovieCard({ title, image, onVerDetalle }) {
       <div style={{ padding: "12px", textAlign: "center" }}>
         <h3>{title}</h3>
 
-        <Button text="Ver detalle" onClick={onVerDetalle} />
+        {movieId && (
+          <Link to={`/detalle/${movieId}`} style={{ textDecoration: "none" }}>
+            <Button text="Ver detalle" />
+          </Link>
+        )}
       </div>
     </div>
   )

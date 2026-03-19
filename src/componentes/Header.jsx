@@ -1,4 +1,20 @@
-function Header({ cambiarVista }) {
+import { NavLink } from "react-router-dom"
+
+// Estilo base de los links de navegación
+const linkStyle = {
+  cursor: "pointer",
+  color: "inherit",
+  textDecoration: "none",
+}
+
+// Estilo cuando el link está activo (ruta actual)
+const activeLinkStyle = {
+  ...linkStyle,
+  fontWeight: "bold",
+  textDecoration: "underline",
+}
+
+function Header() {
   return (
     <header
       style={{
@@ -7,7 +23,6 @@ function Header({ cambiarVista }) {
         backgroundColor: "#0b5ed7",
       }}
     >
-
       <div style={{
         display: "flex",
         justifyContent: "space-between",
@@ -17,8 +32,9 @@ function Header({ cambiarVista }) {
         margin: "0 auto"
       }}
       >
-
-        <h1 style={{ margin: 0 }}>CinePrueba</h1>
+        <NavLink to="/" style={({ isActive }) => isActive ? activeLinkStyle : linkStyle}>
+          <h1 style={{ margin: 0 }}>CinePrueba</h1>
+        </NavLink>
 
         <nav
           style={{
@@ -26,33 +42,34 @@ function Header({ cambiarVista }) {
             gap: "24px"
           }}
         >
-          <span
-            style={{ cursor: "pointer" }}
-            onClick={() => cambiarVista("home")}
+          <NavLink
+            to="/"
+            end
+            style={({ isActive }) => isActive ? activeLinkStyle : linkStyle}
           >
             Inicio
-          </span>
+          </NavLink>
 
-          <span
-            style={{ cursor: "pointer" }}
-            onClick={() => cambiarVista("cartelera")}
+          <NavLink
+            to="/cartelera"
+            style={({ isActive }) => isActive ? activeLinkStyle : linkStyle}
           >
             Cartelera
-          </span>
+          </NavLink>
 
-          <span
-            style={{ cursor: "pointer" }}
-            onClick={() => cambiarVista("comida")}
+          <NavLink
+            to="/comida"
+            style={({ isActive }) => isActive ? activeLinkStyle : linkStyle}
           >
             Comida
-          </span>
+          </NavLink>
 
-          <span
-            style={{ cursor: "pointer" }}
-            onClick={() => cambiarVista("otro")}
+          <NavLink
+            to="/otros"
+            style={({ isActive }) => isActive ? activeLinkStyle : linkStyle}
           >
             Otros
-          </span>
+          </NavLink>
         </nav>
       </div>
     </header>
