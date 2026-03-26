@@ -1,5 +1,5 @@
 import MovieCard from "../componentes/MovieCard"
-import peliculas from "../detalles_cartelera.json";
+import peliculas from "../data/detalles_cartelera.json";
 
 function Cartelera() {
   return (
