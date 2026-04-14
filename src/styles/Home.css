@@ -11,3 +11,11 @@
   padding-left: var(--spacing-md);
   margin-bottom: var(--spacing-lg);
 }
+
+/* Responsive Home */
+@media (max-width: 768px) {
+  .page-container h2 {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+  }
+}

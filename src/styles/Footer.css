@@ -71,3 +71,15 @@
   color: #475569;
   text-align: center;
 }
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+  .footer-container {
+    padding: var(--spacing-lg) var(--spacing-md) var(--spacing-md);
+  }
+
+  .footer-columns {
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+}

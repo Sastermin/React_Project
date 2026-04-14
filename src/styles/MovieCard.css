@@ -40,3 +40,18 @@
 .movie-card-link {
   text-decoration: none;
 }
+
+/* Responsive MovieCard */
+@media (max-width: 768px) {
+  .movie-card-img {
+    height: 280px;
+  }
+
+  .movie-card:hover {
+    transform: none;
+  }
+
+  .movie-card-content h3 {
+    font-size: 1rem;
+  }
+}

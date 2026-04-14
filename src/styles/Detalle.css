@@ -105,3 +105,15 @@
   border-radius: var(--border-radius-sm);
   border-left: 3px solid #16a34a;
 }
+
+/* Responsive Detalle */
+@media (max-width: 768px) {
+  .detalle-main {
+    padding: var(--spacing-md);
+  }
+  
+  .detalle-btn {
+    width: 100%;
+    padding: 14px;
+  }
+}

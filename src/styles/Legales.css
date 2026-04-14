@@ -17,3 +17,10 @@
   color: var(--text-secondary);
   line-height: 1.7;
 }
+
+/* Responsive Legales */
+@media (max-width: 768px) {
+  .legales-container {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+}
