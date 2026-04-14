@@ -1,5 +1,6 @@
 // Importamos la tarjeta reutilizable
 import MovieCard from "../componentes/MovieCard"
+import "../styles/Food.css"
 
 function Food({ verDetalle }) {
   const productos = [

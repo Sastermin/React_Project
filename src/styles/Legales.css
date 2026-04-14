@@ -1,0 +1,19 @@
+/* =========================================
+   Página: Legales
+========================================= */
+
+.legales-container {
+  padding: var(--spacing-2xl) var(--spacing-xl);
+  min-height: 60vh;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.legales-container h2 {
+  margin-bottom: var(--spacing-md);
+}
+
+.legales-container p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}

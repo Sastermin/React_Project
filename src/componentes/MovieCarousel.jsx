@@ -5,6 +5,7 @@ import "swiper/css"
 import "swiper/css/navigation"
 
 import MovieCard from "./MovieCard"
+import "../styles/MovieCarousel.css"
 
 function MovieCarousel({ movies }) {
   return (

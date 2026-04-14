@@ -1,0 +1,31 @@
+/* =========================================
+   Componente: MovieCarousel (Swiper)
+========================================= */
+
+.swiper {
+  padding-bottom: var(--spacing-md);
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--color-primary) !important;
+  background-color: rgba(255, 255, 255, 0.85);
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50%;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-fast);
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 16px !important;
+  font-weight: bold;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background-color: #ffffff;
+  box-shadow: var(--shadow-lg);
+  transform: scale(1.1);
+}

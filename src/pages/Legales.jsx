@@ -1,3 +1,5 @@
+import "../styles/Legales.css"
+
 function Legales() {
   return (
     <div className="legales-container">

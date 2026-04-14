@@ -1,0 +1,30 @@
+/* =========================================
+   Componente: Button (Personalizado)
+========================================= */
+
+.custom-btn {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+  color: var(--text-on-accent);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-top: var(--spacing-sm);
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
+}
+
+.custom-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4);
+  filter: brightness(1.05);
+}
+
+.custom-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(245, 158, 11, 0.3);
+}

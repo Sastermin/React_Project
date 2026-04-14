@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom"
 import { useState } from "react"
 import peliculasHome from "../data/detalles.json"
 import peliculasCartelera from "../data/detalles_cartelera.json"
+import "../styles/Detalle.css"
 
 // película en ambos JSONs por ID
 const todasLasPeliculas = [...peliculasHome, ...peliculasCartelera]
