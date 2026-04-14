@@ -11,7 +11,7 @@ import Legales from "./pages/Legales"
 
 function App() {
   return (
-    <div style={{ minHeight: "100vh" }}>
+    <div className="app-container">
       <Header />
 
       <Routes>

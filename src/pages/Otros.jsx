@@ -3,16 +3,7 @@ import MovieCard from "../componentes/MovieCard"
 
 function Otros() {
   return (
-    <main
-      style={{
-        maxWidth: "1200px", // Controla el ancho en pantallas grandes
-        margin: "0 auto",   // Centra el contenido
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-        gap: "16px",
-        padding: "16px"
-      }}
-    >
+    <main className="grid-layout">
       <MovieCard
         title="Promociones"
         image=""

@@ -1,0 +1,649 @@
+diff --git a/src/App.jsx b/src/App.jsx
+index 0768fd5..a77d4ef 100644
+--- a/src/App.jsx
++++ b/src/App.jsx
+@@ -11,7 +11,7 @@ import Legales from "./pages/Legales"
+ 
+ function App() {
+   return (
+-    <div style={{ minHeight: "100vh" }}>
++    <div className="app-container">
+       <Header />
+ 
+       <Routes>
+diff --git a/src/componentes/Button.jsx b/src/componentes/Button.jsx
+index e195945..66024b4 100644
+--- a/src/componentes/Button.jsx
++++ b/src/componentes/Button.jsx
+@@ -3,15 +3,7 @@ function Button({ text, onClick }) {
+     <button
+       //Evento de React: se ejecuta cuando el usuario hace click
+       onClick={onClick}
+-      style={{
+-        padding: "10px 16px",
+-        backgroundColor: "#ffc107",
+-        color: "white",
+-        border: "none",
+-        borderRadius: "4px",
+-        cursor: "pointer",
+-        marginTop: "8px"
+-      }}
++      className="custom-btn"
+     >
+       {text}
+     </button>
+diff --git a/src/componentes/Footer.jsx b/src/componentes/Footer.jsx
+index e0a530c..8471321 100644
+--- a/src/componentes/Footer.jsx
++++ b/src/componentes/Footer.jsx
+@@ -1,53 +1,43 @@
+ import { Link } from "react-router-dom"
+ 
+-const linkStyle = {
+-  color: "inherit",
+-  textDecoration: "none",
+-}
+-
+ function Footer() {
+   return (
+-    <footer style={{
+-      backgroundColor: "#0d1b2a",
+-      color: "#a8b2c8",
+-      padding: "40px 32px 20px",
+-      fontFamily: "system-ui, sans-serif",
+-    }}>
++    <footer className="footer-container">
+ 
+       {/* Columnas */}
+-      <div style={{ display: "flex", gap: "64px", flexWrap: "wrap", marginBottom: "32px" }}>
++      <div className="footer-columns">
+ 
+         {/* Cartelera */}
+         <div>
+-          <h4 style={{ color: "#fff", margin: "0 0 12px" }}>
+-            <Link to="/cartelera" style={linkStyle}>Cartelera</Link>
++          <h4 className="footer-column-title">
++            <Link to="/cartelera" className="footer-link">Cartelera</Link>
+           </h4>
+-          <p style={{ margin: "6px 0" }}>Próximos estrenos</p>
+-          <p style={{ margin: "6px 0" }}>En cartelera</p>
+-          <p style={{ margin: "6px 0" }}>Preventas</p>
++          <p className="footer-text">Próximos estrenos</p>
++          <p className="footer-text">En cartelera</p>
++          <p className="footer-text">Preventas</p>
+         </div>
+ 
+         {/* Legales */}
+         <div>
+-          <h4 style={{ color: "#fff", margin: "0 0 12px", cursor: "pointer" }}>
+-            <Link to="/legales" style={linkStyle}>Legales</Link>
++          <h4 className="footer-column-title-pointer">
++            <Link to="/legales" className="footer-link">Legales</Link>
+           </h4>
+-          <p style={{ margin: "6px 0" }}>Términos y condiciones</p>
+-          <p style={{ margin: "6px 0" }}>Aviso de privacidad</p>
++          <p className="footer-text">Términos y condiciones</p>
++          <p className="footer-text">Aviso de privacidad</p>
+         </div>
+ 
+         {/* Contacto */}
+         <div>
+-          <h4 style={{ color: "#fff", margin: "0 0 12px" }}>Contacto</h4>
+-          <p style={{ margin: "6px 0" }}>contacto@cineprueba.com</p>
+-          <p style={{ margin: "6px 0" }}>Tel. 552 122 6060</p>
++          <h4 className="footer-column-title">Contacto</h4>
++          <p className="footer-text">contacto@cineprueba.com</p>
++          <p className="footer-text">Tel. 552 122 6060</p>
+         </div>
+ 
+       </div>
+ 
+       {/* Línea divisoria y copyright */}
+-      <hr style={{ borderColor: "#1e3048", margin: "0 0 16px" }} />
+-      <p style={{ margin: 0, fontSize: "0.8rem", color: "#5a6a80" }}>
++      <hr className="footer-divider" />
++      <p className="footer-copyright">
+         © 2026 CinePrueba — Proyecto educativo
+       </p>
+ 
+diff --git a/src/componentes/Header.jsx b/src/componentes/Header.jsx
+index a67c5b6..9e8161b 100644
+--- a/src/componentes/Header.jsx
++++ b/src/componentes/Header.jsx
+@@ -1,72 +1,39 @@
+ import { NavLink } from "react-router-dom"
+ 
+-// Estilo base de los links de navegación
+-const linkStyle = {
+-  cursor: "pointer",
+-  color: "inherit",
+-  textDecoration: "none",
+-}
+-
+-// Estilo cuando el link está activo (ruta actual)
+-const activeLinkStyle = {
+-  ...linkStyle,
+-  fontWeight: "bold",
+-  textDecoration: "underline",
+-}
+-
+ function Header() {
+   return (
+-    <header
+-      style={{
+-        width: "100%",
+-        boxSizing: "border-box",
+-        backgroundColor: "#0b5ed7",
+-      }}
+-    >
+-      <div style={{
+-        display: "flex",
+-        justifyContent: "space-between",
+-        alignItems: "center",
+-        padding: "16px 24px",
+-        maxWidth: "1400px",
+-        margin: "0 auto"
+-      }}
+-      >
+-        <NavLink to="/" style={({ isActive }) => isActive ? activeLinkStyle : linkStyle}>
+-          <h1 style={{ margin: 0 }}>CinePrueba</h1>
++    <header className="header-container">
++      <div className="header-content">
++        <NavLink to="/" className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}>
++          <h1 className="header-title">CinePrueba</h1>
+         </NavLink>
+ 
+-        <nav
+-          style={{
+-            display: "flex",
+-            gap: "24px"
+-          }}
+-        >
++        <nav className="header-nav">
+           <NavLink
+             to="/"
+             end
+-            style={({ isActive }) => isActive ? activeLinkStyle : linkStyle}
++            className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
+           >
+             Inicio
+           </NavLink>
+ 
+           <NavLink
+             to="/cartelera"
+-            style={({ isActive }) => isActive ? activeLinkStyle : linkStyle}
++            className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
+           >
+             Cartelera
+           </NavLink>
+ 
+           <NavLink
+             to="/comida"
+-            style={({ isActive }) => isActive ? activeLinkStyle : linkStyle}
++            className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
+           >
+             Comida
+           </NavLink>
+ 
+           <NavLink
+             to="/otros"
+-            style={({ isActive }) => isActive ? activeLinkStyle : linkStyle}
++            className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
+           >
+             Otros
+           </NavLink>
+diff --git a/src/componentes/MovieCard.jsx b/src/componentes/MovieCard.jsx
+index f004239..119bf13 100644
+--- a/src/componentes/MovieCard.jsx
++++ b/src/componentes/MovieCard.jsx
+@@ -3,29 +3,18 @@ import Button from "./Button"
+ 
+ function MovieCard({ title, image, movieId }) {
+   return (
+-    <div
+-      style={{
+-        border: "1px solid #ddd",
+-        borderRadius: "8px",
+-        overflow: "hidden",
+-        boxShadow: "0 2px 6px rgba(0,0,0,0.1)"
+-      }}
+-    >
++    <div className="movie-card">
+       <img
+         src={image}
+         alt={title}
+-        style={{
+-          width: "100%",
+-          height: "300px",
+-          objectFit: "cover"
+-        }}
++        className="movie-card-img"
+       />
+ 
+-      <div style={{ padding: "12px", textAlign: "center" }}>
++      <div className="movie-card-content">
+         <h3>{title}</h3>
+ 
+         {movieId && (
+-          <Link to={`/detalle/${movieId}`} style={{ textDecoration: "none" }}>
++          <Link to={`/detalle/${movieId}`} className="movie-card-link">
+             <Button text="Ver detalle" />
+           </Link>
+         )}
+diff --git a/src/index.css b/src/index.css
+index 4ad2425..4c0fefd 100644
+--- a/src/index.css
++++ b/src/index.css
+@@ -68,4 +68,199 @@ button:focus-visible {
+   button {
+     background-color: #f9f9f9;
+   }
++}
++
++/* =========================================
++   CUSTOM CLASSES PARA COMPONENTES
++========================================= */
++
++/* Base & Layout */
++.app-container {
++  min-height: 100vh;
++}
++
++.page-container {
++  max-width: 1200px;
++  margin: 0 auto;
++  padding: 16px;
++}
++
++.grid-layout {
++  max-width: 1200px;
++  margin: 0 auto;
++  display: grid;
++  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
++  gap: 16px;
++  padding: 16px;
++}
++
++/* Componente: Header */
++.header-container {
++  width: 100%;
++  box-sizing: border-box;
++  background-color: #0b5ed7;
++}
++
++.header-content {
++  display: flex;
++  justify-content: space-between;
++  align-items: center;
++  padding: 16px 24px;
++  max-width: 1400px;
++  margin: 0 auto;
++}
++
++.header-title {
++  margin: 0;
++}
++
++.header-nav {
++  display: flex;
++  gap: 24px;
++}
++
++.nav-link {
++  cursor: pointer;
++  color: inherit;
++  text-decoration: none;
++}
++
++.nav-link.active {
++  font-weight: bold;
++  text-decoration: underline;
++}
++
++/* Componente: Footer */
++.footer-container {
++  background-color: #0d1b2a;
++  color: #a8b2c8;
++  padding: 40px 32px 20px;
++  font-family: system-ui, sans-serif;
++}
++
++.footer-columns {
++  display: flex;
++  gap: 64px;
++  flex-wrap: wrap;
++  margin-bottom: 32px;
++}
++
++.footer-column-title {
++  color: #fff;
++  margin: 0 0 12px;
++}
++
++.footer-column-title-pointer {
++  color: #fff;
++  margin: 0 0 12px;
++  cursor: pointer;
++}
++
++.footer-link {
++  color: inherit;
++  text-decoration: none;
++}
++
++.footer-text {
++  margin: 6px 0;
++}
++
++.footer-divider {
++  border-color: #1e3048;
++  margin: 0 0 16px;
++}
++
++.footer-copyright {
++  margin: 0;
++  font-size: 0.8rem;
++  color: #5a6a80;
++}
++
++/* Componente: MovieCard */
++.movie-card {
++  border: 1px solid #ddd;
++  border-radius: 8px;
++  overflow: hidden;
++  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
++}
++
++.movie-card-img {
++  width: 100%;
++  height: 300px;
++  object-fit: cover;
++}
++
++.movie-card-content {
++  padding: 12px;
++  text-align: center;
++}
++
++.movie-card-link {
++  text-decoration: none;
++}
++
++/* Componente: Button (Personalizado) */
++.custom-btn {
++  padding: 10px 16px;
++  background-color: #ffc107;
++  color: white;
++  border: none;
++  border-radius: 4px;
++  cursor: pointer;
++  margin-top: 8px;
++}
++
++/* Pagina: Detalle */
++.detalle-main {
++  padding: 24px;
++  max-width: 800px;
++  margin: 0 auto;
++}
++
++.detalle-back-link {
++  display: inline-block;
++  margin-bottom: 16px;
++  color: #0b5ed7;
++  text-decoration: none;
++}
++
++.detalle-img {
++  width: 100%;
++  border-radius: 8px;
++  margin-bottom: 16px;
++}
++
++.detalle-divider {
++  margin: 24px 0;
++}
++
++.detalle-form-group {
++  margin-bottom: 12px;
++}
++
++.detalle-input {
++  display: block;
++  width: 100%;
++  padding: 8px;
++  margin-top: 4px;
++}
++
++.detalle-btn {
++  padding: 10px 16px;
++  background-color: #ff9800;
++  color: white;
++  border: none;
++  border-radius: 4px;
++  cursor: pointer;
++}
++
++.detalle-msg {
++  margin-top: 16px;
++  color: green;
++}
++
++/* Pagina: Legales */
++.legales-container {
++  padding: 48px 32px;
++  min-height: 60vh;
+ }
+\ No newline at end of file
+diff --git a/src/pages/Cartelera.jsx b/src/pages/Cartelera.jsx
+index 3cd5f1f..8bf1157 100644
+--- a/src/pages/Cartelera.jsx
++++ b/src/pages/Cartelera.jsx
+@@ -3,16 +3,7 @@ import peliculas from "../data/detalles_cartelera.json";
+ 
+ function Cartelera() {
+   return (
+-    <main
+-      style={{
+-        maxWidth: "1200px",
+-        margin: "0 auto",
+-        display: "grid",
+-        gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+-        gap: "16px",
+-        padding: "16px"
+-      }}
+-    >
++    <main className="grid-layout">
+       {peliculas.map((pelicula) => (
+         <MovieCard
+           key={pelicula.id}
+diff --git a/src/pages/Detalle.jsx b/src/pages/Detalle.jsx
+index 0dedf1c..01c2d79 100644
+--- a/src/pages/Detalle.jsx
++++ b/src/pages/Detalle.jsx
+@@ -33,14 +33,8 @@ function Detalle() {
+   }
+ 
+   return (
+-    <main
+-      style={{
+-        padding: "24px",
+-        maxWidth: "800px",
+-        margin: "0 auto"
+-      }}
+-    >
+-      <Link to="/" style={{ display: "inline-block", marginBottom: "16px", color: "#0b5ed7" }}>
++    <main className="detalle-main">
++      <Link to="/" className="detalle-back-link">
+         ← Volver
+       </Link>
+ 
+@@ -49,70 +43,49 @@ function Detalle() {
+       <img
+         src={pelicula.imagen}
+         alt={pelicula.titulo}
+-        style={{
+-          width: "100%",
+-          borderRadius: "8px",
+-          marginBottom: "16px"
+-        }}
++        className="detalle-img"
+       />
+ 
+       <p>{pelicula.descripcion}</p>
+ 
+-      <hr style={{ margin: "24px 0" }} />
++      <hr className="detalle-divider" />
+ 
+       <h3>Comprar boletos</h3>
+ 
+       <form onSubmit={manejarCompra}>
+-        <div style={{ marginBottom: "12px" }}>
++        <div className="detalle-form-group">
+           <label>Nombre:</label>
+           <input
+             type="text"
+             value={nombre}
+             onChange={(e) => setNombre(e.target.value)}
+-            style={{
+-              display: "block",
+-              width: "100%",
+-              padding: "8px",
+-              marginTop: "4px"
+-            }}
++            className="detalle-input"
+             required
+           />
+         </div>
+ 
+-        <div style={{ marginBottom: "12px" }}>
++        <div className="detalle-form-group">
+           <label>Cantidad de boletos:</label>
+           <input
+             type="number"
+             min="1"
+             value={cantidadBoletos}
+             onChange={(e) => setCantidadBoletos(e.target.value)}
+-            style={{
+-              display: "block",
+-              width: "100%",
+-              padding: "8px",
+-              marginTop: "4px"
+-            }}
++            className="detalle-input"
+             required
+           />
+         </div>
+ 
+         <button
+           type="submit"
+-          style={{
+-            padding: "10px 16px",
+-            backgroundColor: "#ff9800",
+-            color: "white",
+-            border: "none",
+-            borderRadius: "4px",
+-            cursor: "pointer"
+-          }}
++          className="detalle-btn"
+         >
+           Comprar
+         </button>
+       </form>
+ 
+       {mensaje && (
+-        <p style={{ marginTop: "16px", color: "green" }}>
++        <p className="detalle-msg">
+           {mensaje}
+         </p>
+       )}
+diff --git a/src/pages/Food.jsx b/src/pages/Food.jsx
+index 9179928..6abd520 100644
+--- a/src/pages/Food.jsx
++++ b/src/pages/Food.jsx
+@@ -24,16 +24,7 @@ function Food({ verDetalle }) {
+   ]
+ 
+   return (
+-    <main
+-      style={{
+-        maxWidth: "1200px",
+-        margin: "0 auto",
+-        display: "grid",
+-        gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+-        gap: "16px",
+-        padding: "16px"
+-      }}
+-    >
++    <main className="grid-layout">
+       {productos.map((producto) => (
+         <MovieCard
+           key={producto.id}
+diff --git a/src/pages/Home.jsx b/src/pages/Home.jsx
+index e7b2502..fb117f8 100644
+--- a/src/pages/Home.jsx
++++ b/src/pages/Home.jsx
+@@ -5,27 +5,12 @@ import peliculas from "../data/detalles.json";
+ function Home() {
+   return (
+     <>
+-      <section
+-        style={{
+-          maxWidth: "1200px",
+-          margin: "0 auto",
+-          padding: "16px"
+-        }}
+-      >
++      <section className="page-container">
+         <h2>ESTRENOS</h2>
+         <MovieCarousel movies={peliculas} />
+       </section>
+ 
+-      <main
+-        style={{
+-          maxWidth: "1200px",
+-          margin: "0 auto",
+-          display: "grid",
+-          gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+-          gap: "16px",
+-          padding: "16px"
+-        }}
+-      >
++      <main className="grid-layout">
+         {peliculas.map((pelicula) => (
+           <MovieCard
+             key={pelicula.id}
+diff --git a/src/pages/Legales.jsx b/src/pages/Legales.jsx
+index 3541552..13543cf 100644
+--- a/src/pages/Legales.jsx
++++ b/src/pages/Legales.jsx
+@@ -1,6 +1,6 @@
+ function Legales() {
+   return (
+-    <div style={{ padding: "48px 32px", minHeight: "60vh" }}>
++    <div className="legales-container">
+       <h2>Legales</h2>
+       <p>Esto es un texto de prueba para la pantalla de Legales.</p>
+     </div>
+diff --git a/src/pages/Otros.jsx b/src/pages/Otros.jsx
+index 76562ba..f0041cb 100644
+--- a/src/pages/Otros.jsx
++++ b/src/pages/Otros.jsx
+@@ -3,16 +3,7 @@ import MovieCard from "../componentes/MovieCard"
+ 
+ function Otros() {
+   return (
+-    <main
+-      style={{
+-        maxWidth: "1200px", // Controla el ancho en pantallas grandes
+-        margin: "0 auto",   // Centra el contenido
+-        display: "grid",
+-        gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+-        gap: "16px",
+-        padding: "16px"
+-      }}
+-    >
++    <main className="grid-layout">
+       <MovieCard
+         title="Promociones"
+         image=""

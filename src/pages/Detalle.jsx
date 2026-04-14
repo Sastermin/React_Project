@@ -33,14 +33,8 @@ function Detalle() {
   }
 
   return (
-    <main
-      style={{
-        padding: "24px",
-        maxWidth: "800px",
-        margin: "0 auto"
-      }}
-    >
-      <Link to="/" style={{ display: "inline-block", marginBottom: "16px", color: "#0b5ed7" }}>
+    <main className="detalle-main">
+      <Link to="/" className="detalle-back-link">
         ← Volver
       </Link>
 
@@ -49,70 +43,49 @@ function Detalle() {
       <img
         src={pelicula.imagen}
         alt={pelicula.titulo}
-        style={{
-          width: "100%",
-          borderRadius: "8px",
-          marginBottom: "16px"
-        }}
+        className="detalle-img"
       />
 
       <p>{pelicula.descripcion}</p>
 
-      <hr style={{ margin: "24px 0" }} />
+      <hr className="detalle-divider" />
 
       <h3>Comprar boletos</h3>
 
       <form onSubmit={manejarCompra}>
-        <div style={{ marginBottom: "12px" }}>
+        <div className="detalle-form-group">
           <label>Nombre:</label>
           <input
             type="text"
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
-            style={{
-              display: "block",
-              width: "100%",
-              padding: "8px",
-              marginTop: "4px"
-            }}
+            className="detalle-input"
             required
           />
         </div>
 
-        <div style={{ marginBottom: "12px" }}>
+        <div className="detalle-form-group">
           <label>Cantidad de boletos:</label>
           <input
             type="number"
             min="1"
             value={cantidadBoletos}
             onChange={(e) => setCantidadBoletos(e.target.value)}
-            style={{
-              display: "block",
-              width: "100%",
-              padding: "8px",
-              marginTop: "4px"
-            }}
+            className="detalle-input"
             required
           />
         </div>
 
         <button
           type="submit"
-          style={{
-            padding: "10px 16px",
-            backgroundColor: "#ff9800",
-            color: "white",
-            border: "none",
-            borderRadius: "4px",
-            cursor: "pointer"
-          }}
+          className="detalle-btn"
         >
           Comprar
         </button>
       </form>
 
       {mensaje && (
-        <p style={{ marginTop: "16px", color: "green" }}>
+        <p className="detalle-msg">
           {mensaje}
         </p>
       )}
