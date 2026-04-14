@@ -1,5 +1,4 @@
 import { Swiper, SwiperSlide } from "swiper/react"
-// módulo de navegación para habilitar flechas en el carrusel
 import { Navigation } from "swiper/modules"
 import "swiper/css"
 import "swiper/css/navigation"

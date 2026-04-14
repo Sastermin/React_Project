@@ -23,5 +23,5 @@ function Otros() {
   )
 }
 
-// Exportamos la vista
+
 export default Otros

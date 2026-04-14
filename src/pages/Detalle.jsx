@@ -4,23 +4,23 @@ import peliculasHome from "../data/detalles.json"
 import peliculasCartelera from "../data/detalles_cartelera.json"
 import "../styles/Detalle.css"
 
-// película en ambos JSONs por ID
+
 const todasLasPeliculas = [...peliculasHome, ...peliculasCartelera]
 
-// Vista de detalle de una película
+// Detalle de una película
 function Detalle() {
   const { id } = useParams()
 
-  // Buscamos la película que coincida con el ID de la URL
+  // Película que coincida con el ID
   const pelicula = todasLasPeliculas.find((p) => String(p.id) === id)
 
-  // Estados para el formulario
+
   const [nombre, setNombre] = useState("")
   const [cantidadBoletos, setCantidadBoletos] = useState(1)
   const [mensaje, setMensaje] = useState("")
 
 
-  // Evento submit/enviar
+  // Evento enviar
   function manejarCompra(e) {
     e.preventDefault()
 
@@ -28,7 +28,6 @@ function Detalle() {
       `Gracias ${nombre}, compraste ${cantidadBoletos} boleto(s) para ${pelicula.titulo}`
     )
 
-    // Opcional: limpiar formulario
     setNombre("")
     setCantidadBoletos(1)
   }

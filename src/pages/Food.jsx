@@ -19,5 +19,5 @@ function Food({ verDetalle }) {
   )
 }
 
-// Exportamos la vista
+
 export default Food

@@ -3,7 +3,7 @@ import "../styles/Button.css"
 function Button({ text, onClick }) {
   return (
     <button
-      //Evento de React: se ejecuta cuando el usuario hace click
+      //Usuario hace click
       onClick={onClick}
       className="custom-btn"
     >
@@ -12,5 +12,5 @@ function Button({ text, onClick }) {
   )
 }
 
-//Exportamos el componente para poder reutilizarlo
+
 export default Button
