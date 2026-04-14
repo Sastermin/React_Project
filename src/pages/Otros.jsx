@@ -1,6 +1,5 @@
 // Importamos la tarjeta reutilizable
 import MovieCard from "../componentes/MovieCard"
-import "../styles/Otros.css"
 
 function Otros() {
   return (
