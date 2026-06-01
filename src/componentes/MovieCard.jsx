@@ -17,6 +17,7 @@ function MovieCard({ title, image, movieId }) {
         {movieId && (
           <Link to={`/detalle/${movieId}`} className="movie-card-link">
             <Button text="Ver detalle" />
+
           </Link>
         )}
       </div>
